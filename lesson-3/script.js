@@ -1,44 +1,66 @@
 function userPortrait () {
 
-    let dateUser = +prompt('Enter please your birth date');
+    let dateUser;
+
+    do {
+        dateUser = prompt('Enter please your birth date');
+
+        if (!dateUser) {
+            alert('It is a pity that you did not want to enter your birth date...');
+        }
+    } while (!dateUser);
+
     let currentDate = new Date().getFullYear() - dateUser;
-    let cityUser = prompt('Enter please your native city').toLowerCase();
-    let sportUser  = prompt('Enter please your favorite sport');
 
+    let cityUser;
 
+    do {
+        cityUser = prompt('What city do you live in?');
+
+        if (!cityUser) {
+            alert('It is a pity that you did not want to enter your city...');
+        }
+    } while (!cityUser);
+
+    let toLowerCaseCity = cityUser.toLowerCase();
     let otherCity;
-    let Ukraine;
-    let USA;
-    let greatBritain;
+    let capitalCity;
     
-    switch (cityUser) {
+    switch (toLowerCaseCity) {
         case 'kiev':
-            Ukraine = ('You live in the capital of Ukraine');
+            capitalCity = ('You live in the capital of Ukraine');
             break;
         case 'washington':
-            USA = ('You live in the capital of USA');
+            capitalCity = ('You live in the capital of USA');
             break;
         case 'london':
-            greatBritain = ('You live in the capital of Greate Britain');
+            capitalCity = ('You live in the capital of Greate Britain');
             break;
         default:    
-            otherCity = (`You live in the ${cityUser.toUpperCase()}`);
+            otherCity = (`You live in the ${cityUser}`);
     }
     
+    let sportUser;
     let otherSport;
-    let basketball;
-    let box;
-    let football;
+    let favoriteSport;
+
+    do {
+        sportUser = prompt('Enter please your favorite sport');
+
+        if (!sportUser) {
+            alert('It is a pity that you did not want to enter your sport...');
+        }
+    } while (!sportUser);
     
     switch (sportUser) {
         case 'basketball':
-            basketball = ('Cool! Do you want to be Kobe Bryant?');
+            favoriteSport = ('Cool! Do you want to be Kobe Bryant?');
             break;
         case 'box':
-            box = ('Cool! Do you want to be Mike Tyson?');
+            favoriteSport = ('Cool! Do you want to be Mike Tyson?');
             break;
         case 'football':
-            football = ('Cool! Do you want to be Cristiano Ronaldo?');
+            favoriteSport = ('Cool! Do you want to be Cristiano Ronaldo?');
             break;
         default:
             otherSport = (`Cool! Do you like ${sportUser}`);
@@ -46,8 +68,8 @@ function userPortrait () {
 
     return alert(`
         You are ${currentDate} years old;
-        ${USA || Ukraine || greatBritain || otherCity};
-        ${basketball || box || football || otherSport};
+        ${capitalCity || otherCity};
+        ${favoriteSport || otherSport};
         `)
 }
 
