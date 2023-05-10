@@ -1,33 +1,42 @@
 function userPortrait () {
 
     let dateUser;
+    
+    function trueDate () {
+        return !dateUser || dateUser < 1900 || dateUser > 2005;
+    }
 
     do {
         dateUser = prompt('Enter please your birth date');
 
-        if (!dateUser) {
+        if (trueDate(dateUser)) {
             alert('It is a pity that you did not want to enter your birth date...');
         }
-    } while (!dateUser);
+    } while (trueDate(dateUser));
+
 
     let currentDate = new Date().getFullYear() - dateUser;
 
     let cityUser;
 
+    function trueCity () {
+        return !cityUser || cityUser == ' ';
+    }
+
     do {
         cityUser = prompt('What city do you live in?');
 
-        if (!cityUser) {
+        if (trueCity(cityUser)) {
             alert('It is a pity that you did not want to enter your city...');
         }
-    } while (!cityUser);
+    } while (trueCity(cityUser));
 
     let toLowerCaseCity = cityUser.toLowerCase();
     let otherCity;
     let capitalCity;
     
     switch (toLowerCaseCity) {
-        case 'kiev':
+        case 'kiev','kyiv':
             capitalCity = ('You live in the capital of Ukraine');
             break;
         case 'washington':
@@ -44,13 +53,17 @@ function userPortrait () {
     let otherSport;
     let favoriteSport;
 
+    function trueSport () {
+        return !sportUser || sportUser == ' ';
+    }
+
     do {
         sportUser = prompt('Enter please your favorite sport');
 
-        if (!sportUser) {
+        if (trueSport(sportUser)) {
             alert('It is a pity that you did not want to enter your sport...');
         }
-    } while (!sportUser);
+    } while (trueSport(sportUser));
     
     switch (sportUser) {
         case 'basketball':
@@ -74,4 +87,3 @@ function userPortrait () {
 }
 
 userPortrait();
-
