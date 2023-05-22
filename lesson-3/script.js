@@ -6,7 +6,7 @@ function usersBirthYear() {
 
   function validateUserBirthDate() {
     return (
-      !dateUser || dateUser < 1900 || dateUser > 2005 || isNaN(dateUserIsNumber)
+      !dateUser || dateUser < 1900 || dateUser > 2023 || isNaN(dateUserIsNumber)
     );
   }
   
@@ -23,8 +23,8 @@ function usersBirthYear() {
   userAge = new Date().getFullYear() - dateUser;
 };
 
-function validateUserCitySport(validate) {
-  if (!validate || validate == " ") {
+function validateUserString (validate) {
+  if (!validate || validate == ' ' || validate.trim() == '') {
     return true;
   }
 };
@@ -38,17 +38,15 @@ function usersCity() {
   do {
     userCity = prompt("What city do you live in?");
 
-    if (validateUserCitySport(userCity)) {
+    if (validateUserString(userCity)) {
       alert("It is a pity that you did not want to enter your city...");
     }
-  } while (validateUserCitySport(userCity));
+  } while (validateUserString(userCity));
 
-  toLowerCaseCity = userCity.toLowerCase();
+  toLowerCaseCity = userCity.toLowerCase().trim();
 
   switch (toLowerCaseCity) {
     case "kiev":
-      capitalCity = "You live in the capital of Ukraine";
-      break;
     case "kyiv":
       capitalCity = "You live in the capital of Ukraine";
       break;
@@ -72,12 +70,12 @@ function usersSport() {
   do {
     userSport = prompt("Enter please your favorite sport");
 
-    if (validateUserCitySport(userSport)) {
+    if (validateUserString(userSport)) {
       alert("It is a pity that you did not want to enter your sport...");
     }
-  } while (validateUserCitySport(userSport));
+  } while (validateUserString(userSport));
 
-  toLowerCaseSport = userSport.toLowerCase();
+  toLowerCaseSport = userSport.toLowerCase().trim();
 
   switch (toLowerCaseSport) {
     case "basketball":
@@ -98,12 +96,12 @@ function confirmAlert () {
   usersBirthYear();
   usersCity();
   usersSport();
-  return alert(
+  alert(
     `You are ${userAge} years old;` +
     '\n' +
     `${capitalCity || otherCity};` +
     '\n' +
-    `${favoriteSport || otherSport};`
+    `${favoriteSport || otherSport};` 
     );
 };
 
