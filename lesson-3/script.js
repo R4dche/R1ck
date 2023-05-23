@@ -24,7 +24,7 @@ function usersBirthYear() {
 };
 
 function validateUserString (validate) {
-  if (!validate || validate == ' ' || validate.trim() == '') {
+  if (!validate || validate.trim() === '') {
     return true;
   }
 };
