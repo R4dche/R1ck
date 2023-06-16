@@ -7,14 +7,35 @@ function usersMassive () {
     usersMassives.push(element);
   }
 
-  usersMassives.sort(function (a, b) {
-    return a - b;
-  });
+  alert(`Your array: ${usersMassives}`);
+
+  function customSort (usersMassives) {
+    usersMassives.sort((a,b) => {
+      if (typeof a === 'number'&& typeof b === 'number') {
+        return a - b;
+      }
+
+      if (typeof a === 'number') {
+        return -1;
+      }
+      if (typeof b === 'number') {
+        return 1;
+      }
+
+      return a.localeCompare(b);
+    });
+
+    return usersMassives;
+  }
+
+  alert(`Your sorted array: ${customSort(usersMassives)}`);
 
   let startIndex = 2;
   let endIndex = 4;
 
   usersMassives.splice(startIndex, endIndex - startIndex + 1);
+
+  alert(`Removed elements 2-4 from array: ${usersMassives}`);
 
   return console.log(usersMassives);
 }
