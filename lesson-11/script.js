@@ -48,3 +48,10 @@ function doMath (mathOperation,firstNumber,secondNumber) {
 let final = doMath(mathOperation,firstNumber,secondNumber);
 
 console.log(final);
+
+let userString = prompt ('Please write a sentence');
+let userRemoveSymbol = prompt ('Lead the characters that need to be deleted');
+
+function removeSymbol (userString,userRemoveSymbol) {
+    
+}
