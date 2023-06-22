@@ -45,4 +45,6 @@ function doMath (mathOperation,firstNumber,secondNumber) {
      return result
 }
 
-doMath();
+let final = doMath(mathOperation,firstNumber,secondNumber);
+
+console.log(final);
