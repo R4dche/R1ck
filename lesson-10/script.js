@@ -8,11 +8,9 @@ function generateKey(length, characters) {
     let randomIndex = Math.floor(Math.random() * symbolLength);
     key += characters.charAt(randomIndex);
   }
-
   return key;
 }
 
 let key = generateKey(5, characters);
 
 console.log(key);
-
