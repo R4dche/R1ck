@@ -79,7 +79,7 @@ function twoDimensionalArray() {
       parentArray[i][k] = element;
     }
   }
-  return console.log(parentArray);
+  return alert(parentArray);
 }
 
 twoDimensionalArray();
